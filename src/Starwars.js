@@ -1,8 +1,25 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import './Starwars.css'
+import StarwarsNoun from './StarwarsNoun'
 
 class Starwars extends Component{
+
+    state={
+        noun:'',
+
+    }
+
+    handleChange = (ev) => {
+        this.setState({noun: ev.target.value})
+    }
+
+    handleSubmit = (ev) => {
+        ev.preventDefault()
+        this.setState({noun:''})
+        this.props.history.push(`/starwars/planets/?search=${this.state.noun}`)   
+    }
+
     render(){
         return (
         <div className="starwars">
@@ -11,7 +28,9 @@ class Starwars extends Component{
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <input 
-                        type="text" 
+                        type="text"
+                        value={this.state.noun}
+                        onChange={this.handleChange}
                     />
                 </div>
                 <div>
@@ -19,7 +38,7 @@ class Starwars extends Component{
                 </div>
             </form>    
             <Route exact path="/starwars" render={() => <h3>Please enter a valid Star Wars person, planet, or starship.</h3>}/>
-            <Route path="/starwars/:username" />  
+            <Route path="/starwars/planets/?search=:noun" component={StarwarsNoun}/>  
         </div>
         )
     }

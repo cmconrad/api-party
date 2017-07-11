@@ -1,0 +1,8 @@
+.starwars-name img{
+    height: 200px;
+    border-radius: 50%;
+}
+
+.starwars-name h3{
+    color: #999;
+}
