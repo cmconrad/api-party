@@ -37,8 +37,8 @@ class Starwars extends Component{
                     <button>Look up a Star Wars entity.</button>
                 </div>
             </form>    
-            <Route exact path="/starwars" render={() => <h3>Please enter a valid Star Wars person, planet, or starship.</h3>}/>
-            <Route path="/starwars/planets/?search=:noun" component={StarwarsNoun}/>  
+            <Route path="/starwars/planets/?search=:noun" component={StarwarsNoun}/> 
+            <Route exact path="/starwars" render={() => <h3>Please enter a valid Star Wars planet.</h3>}/>
         </div>
         )
     }
