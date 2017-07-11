@@ -16,7 +16,8 @@ class StarwarsNoun extends Component {
         console.log(props.match.params.noun)
         fetch(`http://swapi.co/api/planets/?search=${props.match.params.noun}`)
             .then(data => data.json())
-            .then(noun => this.setState({noun}))
+            .then(noun => this.setState(noun))
+        console.log(this.state.noun.results)
     }
 
     componentWillReceiveProps(nextProps){

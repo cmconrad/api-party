@@ -35,12 +35,12 @@ class Starwars extends Component{
                     />
                 </div>
                 <div className="radio-inline">
-                    <input type="radio" name="entity" value="Planets"/> Planets
-                    <input type="radio" name="entity" value="People"/> People
-                    <input type="radio" name="entity" value="Starships"/> Starships
-                    <input type="radio" name="entity" value="Vehicles"/> Vehicles
-                    <input type="radio" name="entity" value="Species"/> Species
-                    <input type="radio" name="entity" value="Films"/> Films
+                    <input type="radio" name="entity" value="planets"/> Planets
+                    <input type="radio" name="entity" value="people"/> People
+                    <input type="radio" name="entity" value="starships"/> Starships
+                    <input type="radio" name="entity" value="vehicles"/> Vehicles
+                    <input type="radio" name="entity" value="species"/> Species
+                    <input type="radio" name="entity" value="films"/> Films
                 </div>
                 <div>
                     <button>Look up a Star Wars entity.</button>
