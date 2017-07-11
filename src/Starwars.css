@@ -8,7 +8,7 @@
     max-width: 500px;
 }
 
-.starwars input {
+.text {
     font-family: "Gentium Book Basic", serif;
     box-sizing: border-box;
     width: 80%;
@@ -32,4 +32,13 @@
     margin-bottom: 50px;
     background-color: #0184be;
     font-family: "Gentium Book Basic", serif;
+}
+
+.starwars .radio-inline{
+    padding: 10px;
+    font-size: 24px;
+    font-family: "Gentium Book Basic", serif;
+}
+.radio-inline input{
+    margin:20px;    
 }

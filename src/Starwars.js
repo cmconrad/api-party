@@ -28,10 +28,19 @@ class Starwars extends Component{
             <form onSubmit={this.handleSubmit}>
                 <div>
                     <input 
+                        className="text"
                         type="text"
                         value={this.state.noun}
                         onChange={this.handleChange}
                     />
+                </div>
+                <div className="radio-inline">
+                    <input type="radio" name="entity" value="Planets"/> Planets
+                    <input type="radio" name="entity" value="People"/> People
+                    <input type="radio" name="entity" value="Starships"/> Starships
+                    <input type="radio" name="entity" value="Vehicles"/> Vehicles
+                    <input type="radio" name="entity" value="Species"/> Species
+                    <input type="radio" name="entity" value="Films"/> Films
                 </div>
                 <div>
                     <button>Look up a Star Wars entity.</button>
