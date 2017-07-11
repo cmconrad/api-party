@@ -27,10 +27,9 @@ class StarwarsNoun extends Component {
     }
 
     render(){
-        
         return (
         <div className="starwars-noun">
-            <h3>climate: {this.state.noun.results}]</h3>
+            <h3>climate: {this.state.noun.results}</h3>
         </div>
         )
     }
