@@ -9,28 +9,28 @@ class StarwarsNoun extends Component {
             noun:{},
         }
 
-        this.fetchnounData(props)
+        this.fetchNounData(props)
     }
 
-    fetchnounData(props){
+    fetchNounData(props){
+        console.log(props.match.params.noun)
         fetch(`http://swapi.co/api/planets/?search=${props.match.params.noun}`)
             .then(data => data.json())
             .then(noun => this.setState({noun}))
     }
 
-    componentWillRecieveProps(nextProps){
+    componentWillReceiveProps(nextProps){
         const locationChanged = nextProps.location !== this.props.location
         if (locationChanged){   
-            this.fetchnounData(nextProps)
+            this.fetchNounData(nextProps)
         }
     }
 
     render(){
-        const {noun} = this.state
-        console.log("Noun was rendered")
+        
         return (
         <div className="starwars-noun">
-            <h3>climate: {noun.count}</h3>
+            <h3>climate: {this.state.noun.results}]</h3>
         </div>
         )
     }

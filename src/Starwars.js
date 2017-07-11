@@ -17,7 +17,7 @@ class Starwars extends Component{
     handleSubmit = (ev) => {
         ev.preventDefault()
         this.setState({noun:''})
-        this.props.history.push(`/starwars/planets/?search=${this.state.noun}`)   
+        this.props.history.push(`/starwars/${this.state.noun}`)   
     }
 
     render(){
@@ -37,7 +37,7 @@ class Starwars extends Component{
                     <button>Look up a Star Wars entity.</button>
                 </div>
             </form>    
-            <Route path="/starwars/planets/?search=:noun" component={StarwarsNoun}/> 
+            <Route path="/starwars/:noun" component={StarwarsNoun}/> 
             <Route exact path="/starwars" render={() => <h3>Please enter a valid Star Wars planet.</h3>}/>
         </div>
         )
