@@ -29,10 +29,10 @@ class WeatherCity extends Component {
     }
 
     render(){
-        const {city} = this.state.city
+        const {city} = this.state
         return (
         <div className="weather-city">
-            <h3>todo:</h3>
+            <h3>City:{city['name']}</h3>
         </div>
         )
     }
