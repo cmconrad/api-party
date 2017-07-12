@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import "./WeatherCity.css"
+import APPID from './APPID'
 
 class WeatherCity extends Component {
     constructor(props){
@@ -9,27 +10,29 @@ class WeatherCity extends Component {
             city:{},
         }
 
-        this.fetchcityData(props)
+        this.fetchCityData(props)
     }
 
-    fetchcityData(props){
-        fetch(`https://api.weather.com/city/${props.match.params.cityname}`)
+    fetchCityData(props){
+        console.log(props.match.params.city)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?q=${props.match.params.city}&APPID=${APPID}`)
             .then(data => data.json())
             .then(city => this.setState({city}))
+            .then(console.log(this.state.city))
     }
 
-    componentWillRecieveProps(nextProps){
+    componentWillReceiveProps(nextProps){
         const locationChanged = nextProps.location !== this.props.location
         if (locationChanged){   
-            this.fetchcityData(nextProps)
+            this.fetchCityData(nextProps)
         }
     }
 
     render(){
-        const {city} = this.state
+        const {city} = this.state.city
         return (
         <div className="weather-city">
-            <h3>followers: {city.followers}</h3>
+            <h3>todo:</h3>
         </div>
         )
     }

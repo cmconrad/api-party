@@ -16,8 +16,8 @@ class StarwarsNoun extends Component {
         console.log(props.match.params.noun)
         fetch(`http://swapi.co/api/planets/?search=${props.match.params.noun}`)
             .then(data => data.json())
-            .then(noun => this.setState(noun))
-        console.log(this.state.noun.results)
+            .then(noun => this.setState({noun}))
+            .then(console.log(this.state.noun))
     }
 
     componentWillReceiveProps(nextProps){
@@ -28,9 +28,10 @@ class StarwarsNoun extends Component {
     }
 
     render(){
+        const { noun } = this.state.noun
         return (
         <div className="starwars-noun">
-            <h3>climate: {this.state.noun.results}</h3>
+            <h3>climate: </h3>
         </div>
         )
     }
