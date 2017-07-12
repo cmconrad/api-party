@@ -6,18 +6,19 @@ class StarwarsNoun extends Component {
         super(props)
         
         this.state={
-            noun:{},
+            noun:'',
+            results:{}
         }
 
         this.fetchNounData(props)
     }
 
     fetchNounData(props){
-        console.log(props.match.params.noun)
-        fetch(`http://swapi.co/api/planets/?search=${props.match.params.noun}`)
+        console.log(props.button)
+        fetch(`http://swapi.co/api/${this.props.button}/?search=Hoth`)
             .then(data => data.json())
-            .then(noun => this.setState({noun}))
-            .then(console.log(this.state.noun))
+            .then(results => { this.setState({results: results.results[0]})
+            })
     }
 
     componentWillReceiveProps(nextProps){
@@ -28,12 +29,36 @@ class StarwarsNoun extends Component {
     }
 
     render(){
-        const { noun } = this.state.noun
-        return (
-        <div className="starwars-noun">
-            <h3>climate: </h3>
-        </div>
-        )
+        const r = this.state.results
+        if (this.props.button === "planets"){
+            return (
+            <div className="starwars-noun">
+                <h1>{r.name}</h1>
+                <h2>Terrain: {r.terrain}</h2>
+                <h2>Rotation Period (hours) : {r.rotation_period}</h2>
+                <h2>Orbital Period (days) : {r.orbital_period}</h2>
+                <h2>Diameter (km) : {r.diameter}</h2>
+                <h2>Climate: {r.climate}</h2>
+                <h2>Surface Water (%) : {r.surface_water}</h2>
+                <h2>Population: {r.population}</h2>
+            </div>
+            )
+        }
+        if (this.props.button === "people"){
+            return(
+                <div className="starwars-noun">
+                    <h1>{r.name}</h1>
+                    <h2>Height (cm) : {r.height}</h2>
+                    <h2>Mass (kg) : {r.mass}</h2>
+                    <h2>Hair Color: {r.hair_color}</h2>
+                    <h2>Skin Color: {r.skin_color}</h2>
+                    <h2>Birth Year: {r.birth_year}</h2>
+                    <h2>Gender : {r.gender}</h2>
+                    <h2>Homeworld: {r.homeworld}</h2>
+                </div>
+            )
+        }
+            
     }
 }
 

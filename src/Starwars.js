@@ -7,7 +7,7 @@ class Starwars extends Component{
 
     state={
         noun:'',
-
+        button:''
     }
 
     handleChange = (ev) => {
@@ -17,6 +17,7 @@ class Starwars extends Component{
     handleSubmit = (ev) => {
         ev.preventDefault()
         this.setState({noun:''})
+        this.setState({button: document.querySelector('input[name = "entity"]:checked').value})
         this.props.history.push(`/starwars/${this.state.noun}`)   
     }
 
@@ -46,8 +47,12 @@ class Starwars extends Component{
                     <button>Look up a Star Wars entity.</button>
                 </div>
             </form>    
-            <Route path="/starwars/:noun" component={StarwarsNoun}/> 
-            <Route exact path="/starwars" render={() => <h3>Please enter a valid Star Wars planet.</h3>}/>
+            <Route path="/starwars/:noun" render={(props) => 
+                <StarwarsNoun
+                    button={this.state.button}
+                />}
+            />
+            <Route exact path="/starwars" render={() => <h3>Please enter a valid Star Wars entity.</h3>}/>
         </div>
         )
     }
