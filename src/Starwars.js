@@ -50,6 +50,7 @@ class Starwars extends Component{
             <Route path="/starwars/:noun" render={(props) => 
                 <StarwarsNoun
                     button={this.state.button}
+                    {...props}
                 />}
             />
             <Route exact path="/starwars" render={() => <h3>Please enter a valid Star Wars entity.</h3>}/>
